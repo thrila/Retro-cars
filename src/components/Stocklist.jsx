@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-import finnhub from "../apis/finnhub"; 
+import finnhub from "../apis/finnhub";
 // import { VscTriangleUp ,VscTriangleDown } from 'react-icons/bs';
-import { BsFillCaretUpFill ,BsFillCaretDownFill } from "react-icons/bs";
+import { BsFillCaretUpFill, BsFillCaretDownFill } from "react-icons/bs";
 
 const Stocklist = () => {
   const [stock, setStock] = useState();
   const [watchList, setWatchList] = useState(["GOOGL", "MSFT", "AMZN"]);
-  const changeColor = (item)=> {
-        return item > 0 ? `success` : `danger`
-  }
-  const setIcon = (item)=> {
-    return item > 0 ? <BsFillCaretUpFill /> : <BsFillCaretDownFill/>
-  }
+  const changeColor = (item) => {
+    return item > 0 ? `success` : `danger`;
+  };
+  const setIcon = (item) => {
+    return item > 0 ? <BsFillCaretUpFill /> : <BsFillCaretDownFill />;
+  };
 
   useEffect(() => {
     let isMounted = true;
@@ -62,20 +62,24 @@ const Stocklist = () => {
           </tr>
         </thead>
         <tbody>
-        {stock?.map((stck)=> {
-                return(
-                    <tr key={stck.symbol}>
-                        <th style={{color:"#B270A2"}}>{stck.symbol}</th>
-                        <th>{stck.data && stck.data.c}</th>
-                        <th className={`text-${changeColor(stck.data.d)}`}>{stck.data && stck.data.d} {setIcon(stck.data.d)} </th>
-                        <th className={`text-${changeColor(stck.data.dp)}`}>{stck.data && stck.data.dp} {setIcon(stck.data.dp)}</th>
-                        <th>{stck.data && stck.data.h}</th>
-                        <th>{stck.data && stck.data.l}</th>
-                        <th>{stck.data && stck.data.o}</th>
-                        <th>{stck.data && stck.data.pc}</th>
-                    </tr>
-                );
-            })}
+          {stock?.map((stck) => {
+            return (
+              <tr key={stck.symbol}>
+                <th style={{ color: "#B270A2" }}>{stck.symbol}</th>
+                <th>{stck.data && stck.data.c}</th>
+                <th className={`text-${changeColor(stck.data.d)}`}>
+                  {stck.data && stck.data.d} {setIcon(stck.data.d)}{" "}
+                </th>
+                <th className={`text-${changeColor(stck.data.dp)}`}>
+                  {stck.data && stck.data.dp} {setIcon(stck.data.dp)}
+                </th>
+                <th>{stck.data && stck.data.h}</th>
+                <th>{stck.data && stck.data.l}</th>
+                <th>{stck.data && stck.data.o}</th>
+                <th>{stck.data && stck.data.pc}</th>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

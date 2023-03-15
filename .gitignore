@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 #guide 
 Guide.txt
+
+# env
+.env
