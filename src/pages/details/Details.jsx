@@ -64,7 +64,7 @@ const Detail = () => {
           week: formatData(responses[1].data),
           year: formatData(responses[2].data),
         });
-        console.log(responses);
+        // console.log(responses);
       } catch (err) {
         console.log("Error: " + err);
       }
