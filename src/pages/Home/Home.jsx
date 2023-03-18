@@ -2,6 +2,7 @@ import React from 'react'
 import Stocklist from '../../components/Stocklist'
 import Autocomplete from '../../components/Autocomplete'
 import trade from '../../assets/trade.png'
+import Footer from '../../components/Footer'
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
      </div>
       <Autocomplete />
       <Stocklist />
-      
+      <Footer />
     </div>
   )
 }
