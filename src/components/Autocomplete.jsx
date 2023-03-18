@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import finnhub from "../apis/finnhub";
+import { addItem } from "../store/stocklist-slice";
+import { useDispatch } from "react-redux";
 
 const Autocomplete = () => {
   const [search, setSearch] = useState("");
   const [results, setResults] = useState([]);
+  const dispatch = useDispatch();
+  
+
+
   const handleDropDown = () => {
     const dropDownClass = search ? "show" : null;
     return (
@@ -13,7 +19,9 @@ const Autocomplete = () => {
       >
         {results.map((item) => {
           return (
-            <li key={item.symbol} className="dropdown-item">
+            <li key={item.symbol} className="dropdown-item" onClick={()=> {
+              dispatch(addItem(item.symbol))
+              setSearch('')}}>
               {item.description} ({item.symbol})
             </li>
           );

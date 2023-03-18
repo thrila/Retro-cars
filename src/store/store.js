@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import autocompleteSliceReducer from "./autocomplete-slice";
+import stockListReducer from "./stocklist-slice";
 
 const store = configureStore({
     reducer:{
-            autocompleteSliceReducer,
+       watchList:   stockListReducer,
+
             
     }
 })
