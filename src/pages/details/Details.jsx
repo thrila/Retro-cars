@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import finnhub from "../../apis/finnhub";
 import StockChart from "../../components/StockChart";
+import StockData from "../../components/StockData";
 
 const formatData = (data) => {
   return data.t.map((item, index) => {
@@ -78,6 +79,7 @@ const Detail = () => {
           <StockChart chartData={chartData} symbol={symbol} />
         </div>
       )}
+       <StockData symbol={symbol} />
     </div>
   );
 };
