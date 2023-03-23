@@ -9,7 +9,8 @@ const stockListSlice = createSlice({
     initialState,
     reducers :{
         addItem : (state, action)=> {
-       return [...state, action.payload];
+    //  return [...state, action.payload];
+    return state.push(action.payload)
        localStorage.setItem('watchList', JSON.stringify(state.map(item=> item)));
         },
         deleteItem : (state, action)=> {
